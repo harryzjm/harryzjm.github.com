@@ -1,0 +1,42 @@
+<aside id="sidebar">
+	<script language="javascript" type="application/javascript">
+	function searchOpen() {
+		var name=document.getElementById("search-input").value;
+		window.location.href='https://www.google.com/#safe=strict&q=' + name + '+site:http:%2F%2Fharryzjm.github.io';	
+  }
+	</script>
+
+  <nav id="tags">
+    <a href="/index.html" id="avatar" style="background-image:url({{ site.avatar }})"></a>
+
+    <ul id="tags__ul">
+      <li id="pl__all" class="tags__li tags-btn active">ALL</li>
+      {% assign arr = site.categories | sort: category %}
+      {% for category in arr %} 
+        <li id="{{ category[0] }}" class="tags__li tags-btn">{{ category[0] }}</li>
+      {% endfor %}
+    </ul>
+
+    <div id="tags__bottom">
+      <a href="mailto:{{ site.author.email }}" id="icon-email" class="tags-btn fontello"></a>
+      <a href="{{ site.author.github }}" id="icon-github" class="tags-btn fontello"></a>
+    </div>
+  </nav> <!-- end #tags -->
+
+  <div id="posts-list">
+    <form action="javascript:searchOpen();" id="search-form">
+      <a href="/index.html" id="mobile-avatar" style="background-image:url({{ site.avatar }})"></a>
+      <input id="search-input" type="text" name="" placeholder="{{ site.title }}">
+    </form>
+
+    <nav id="pl__container">
+    {% for post in site.posts %}
+      <a class="{{ post.categories }} pl__all" href="{{ post.url }}">
+      <span class="pl__circle"></span>
+      <span class="pl__title">{{ post.title }}</span>
+      <span class="pl__date">{{ post.date | date: "%b %Y" }}</span>
+      </a>
+    {% endfor %}
+    </nav>
+  </div> <!-- end #posts-list -->
+</aside> <!-- end #sidebar -->

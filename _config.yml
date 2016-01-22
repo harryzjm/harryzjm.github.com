@@ -1,0 +1,33 @@
+permalink: /:year/:month/:day/:title.html
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+
+# 作者信息
+author: 
+  name: 叶落
+  email: harryzjm@live.com
+  link: harryzjm.github.com
+  weibo: 
+  github: https://github.com/harryzjm
+
+# 站点信息
+title: 若然何如
+description: 若然何如
+url: harryzjm.github.com
+rss_url: /rss.xml
+
+# avatar头像及Favicon
+avatar: /assets/photo/avatar_big.webp
+favicon: /assets/photo/avatar_small.gif
+
+# google analytics 设置
+ga:
+  id: UA-100850923-1
+  url: harryzjm.github.com
+
+# disqus 设置
+disqus:
+  shortname: hares
