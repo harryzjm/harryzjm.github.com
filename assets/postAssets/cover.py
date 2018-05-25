@@ -1,18 +1,3 @@
----
-layout: post
-title: 全blog图片转为webp
-category: Gist
-tags: Gist
-keywords: Gist
-description: 
----
-
-
-全 blog 从 png, jpg, jpeg 统一到 [webp](https://developers.google.com/speed/webp/docs/precompiled) 使得整体图片文件大小从45M降到15M. 很好的实践 不错.
-
-其中用到:  
-
-```python  
 #! /usr/local/bin/python3.6
 import re
 import os
@@ -42,5 +27,3 @@ output = os.path.join(os.curdir, "Output")
 os.makedirs(output, exist_ok = True)
 files = totalFiles(path)
 coverImage(files, output)
-```  
-
