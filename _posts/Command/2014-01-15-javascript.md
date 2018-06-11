@@ -7,7 +7,6 @@ keywords: JavaScript
 description: 
 ---
 
-## 常用代码
 
 ### 字符串截取
     substr(start [, length ])
