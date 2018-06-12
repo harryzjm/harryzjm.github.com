@@ -16,12 +16,5 @@ __少年郎 欢迎你来到这里!__
 博客最初模板来自于 [闫肃](https://github.com/suyan/suyan.github.io), 对此表示十分感谢!!  
 
 [iOS版本占有率查询](https://developer.apple.com/support/app-store/)  
-[Download Xcode](https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file)  
-[禁iOS更新: https://oldcat.me/web/NOOTA9.mobileconfig](https://oldcat.me/web/NOOTA9.mobileconfig)  
-二维码版本:  
-<p align="left" >
-  <img src="/assets/photo/disableUpdate.webp">
-</p>
-
 
 
