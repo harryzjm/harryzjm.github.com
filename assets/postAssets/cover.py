@@ -1,4 +1,4 @@
-#! /usr/local/bin/python3.6
+#! /usr/local/bin/python3
 import re
 import os
 import sys
@@ -16,7 +16,9 @@ def coverImage(files, output):
         res=m.search(name)
         if res != None:
             basename = os.path.basename(res.group(1) + '.webp')
-            os.system('cwebp "' + name + '" -o "' + os.path.join(output, basename) + '"')
+            operate = os.system('cwebp "' + name + '" -o "' + os.path.join(output, basename) + '"')
+            if operate != 0:
+                os.system('cp "' + name + '" "' + os.path.join(output, name) + '"')
 
 try:
     path = sys.argv[1]
