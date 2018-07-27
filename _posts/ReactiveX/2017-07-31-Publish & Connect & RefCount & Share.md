@@ -1,38 +1,37 @@
 ---  
-layout: post
-title: Publish & Connect & RefCount & Share
-category: ReactiveX
-tags: Swift Define
-keywords: Jekyll,Github
+layout: post  
+title: Publish & Connect & RefCount & Share  
+category: ReactiveX  
+tags: Swift Define  
+keywords: Jekyll,Github  
 description: 
 ---  
 
-
 ## .publish().connect()  
 ![](/assets/postAssets/2017/15014813930719.webp) 
-  
-```swift   
-print("Starting at 0 seconds")
-let signal = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-            .publish().connect()
 
-let subscription1 = signal.subscribe(onNext: {
-    lError("Next: \($0)")
-})
+```swift  
+print("Starting at 0 seconds")  
+let signal = Observable<Int>.interval(1, scheduler: MainScheduler.instance)  
+            .publish().connect()  
 
-DispatchQueue.after(3) {
-    lError("Disposing at 3 seconds")
-    subscription1.dispose()
-}
+let subscription1 = signal.subscribe(onNext: {  
+    lError("Next: \($0)")  
+})  
 
-DispatchQueue.after(6) {
-    lError("Subscribing again at 6 seconds")
-    signal.subscribe(onNext: {
-        lError("Next: \($0)")
-    })
-}
+DispatchQueue.after(3) {  
+    lError("Disposing at 3 seconds")  
+    subscription1.dispose()  
+}  
 
-// Starting at 0 seconds
+DispatchQueue.after(6) {  
+    lError("Subscribing again at 6 seconds")  
+    signal.subscribe(onNext: {  
+        lError("Next: \($0)")  
+    })  
+}  
+
+// Starting at 0 seconds  
 // 11:08:33~$>  Next: 0 
 // 11:08:34~$>  Next: 1 
 // 11:08:35~$>  Next: 2 
@@ -44,39 +43,38 @@ DispatchQueue.after(6) {
 类似热信号  
 .connect()之后变开始发送 不受subscription影响  
 
-
 ## .publish().refCount() / share()  
 ![](/assets/postAssets/2017/15014813513821.webp)  
-  
+
 ```swift  
-print("Starting at 0 seconds")
-let signal = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-    .publish().refCount()
+print("Starting at 0 seconds")  
+let signal = Observable<Int>.interval(1, scheduler: MainScheduler.instance)  
+    .publish().refCount()  
 
-let subscription1 = signal.subscribe(onNext: {
-    lError("Next: \($0)")
-})
+let subscription1 = signal.subscribe(onNext: {  
+    lError("Next: \($0)")  
+})  
 
-// signal.subscribe(onNext: {
-//     lError("---------- \($0)")
-// }).disposed(by: bag)
+// signal.subscribe(onNext: {  
+//     lError("---------- \($0)")  
+// }).disposed(by: bag)  
 
-DispatchQueue.after(3) {
-    lError("Disposing at 3 seconds")
-    subscription1.dispose()
-}
+DispatchQueue.after(3) {  
+    lError("Disposing at 3 seconds")  
+    subscription1.dispose()  
+}  
 
-DispatchQueue.after(6) {
-    lError("Subscribing again at 6 seconds")
-    signal.subscribe(onNext: {
-        lError("Next: \($0)")
-    })
-}
-```
+DispatchQueue.after(6) {  
+    lError("Subscribing again at 6 seconds")  
+    signal.subscribe(onNext: {  
+        lError("Next: \($0)")  
+    })  
+}  
+```  
 
-有注释:   
+有注释:  
 ```swift  
-// Starting at 0 seconds
+// Starting at 0 seconds  
 // 11:15:26~$>  Next: 0 
 // 11:15:27~$>  Next: 1 
 // 11:15:28~$>  Next: 2 
@@ -89,7 +87,7 @@ DispatchQueue.after(6) {
 
 取消注释:  
 ```swift  
-// Starting at 0 seconds
+// Starting at 0 seconds  
 // 13:48:49~$>  Next: 0 
 // 13:48:49~$>  ---------- 0 
 // 13:48:50~$>  Next: 1 
@@ -109,7 +107,4 @@ DispatchQueue.after(6) {
 
 .publish().refCount() == .share()  
 接收新subscription时, 检测之前是否还有subscription未dispose, 若有继续现在的, 若无重新开始  
-
-
-
 

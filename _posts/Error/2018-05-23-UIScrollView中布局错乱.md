@@ -1,9 +1,9 @@
 ---  
-layout: post
-title: UIScrollView中布局错乱
-category: Error
-tags: Swift Define
-keywords: Jekyll,Github
+layout: post  
+title: UIScrollView中布局错乱  
+category: Error  
+tags: Swift Define  
+keywords: Jekyll,Github  
 description: 
 ---  
 
@@ -14,6 +14,5 @@ description:
 后因设置 `UIImageView.layer.masksToBounds = true` 解决  
 ![1](/assets/postAssets/2018/1.webp)  
 
-原因待续...
-
+原因待续...  
 

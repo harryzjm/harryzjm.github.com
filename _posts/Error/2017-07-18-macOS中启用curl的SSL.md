@@ -1,9 +1,9 @@
 ---  
-layout: post
-title: macOS中启用curl的SSL
-category: Error
-tags: Swift Define
-keywords: Jekyll,Github
+layout: post  
+title: macOS中启用curl的SSL  
+category: Error  
+tags: Swift Define  
+keywords: Jekyll,Github  
 description: 
 ---  
 
@@ -18,5 +18,4 @@ cd curl-x.xx.x
 make  
 sudo make install  
 ```  
-
 
