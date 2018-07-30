@@ -12,9 +12,9 @@ if ($(window).width() < 1280) {
 
 // Variables
 var sidebar    = $('#sidebar'),
-    container  = $('#post'),
-    content    = $('#pjax'),
-    button     = $('#icon-arrow');
+  container  = $('#post'),
+  content    = $('#pjax'),
+  button     = $('#icon-arrow');
 
 // Tags switcher
 var clickHandler = function(id) {
@@ -91,7 +91,7 @@ function afterPjax() {
     // Generate random ID for each heading
     $(this).attr('id', function() {
       var ID = "",
-          alphabet = "abcdefghijklmnopqrstuvwxyz";
+        alphabet = "abcdefghijklmnopqrstuvwxyz";
 
       for(var i=0; i < 5; i++) {
         ID += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
@@ -118,23 +118,39 @@ function afterPjax() {
     });
   });
 
+
+  $('#search-input').on('input', function(e){
+    $(".pl__all").each(function() {
+      let inputValue = $('#search-input').val()
+      let reg = new RegExp(inputValue, "i");
+      let sub = $(this).children(".pl__title");
+
+      if (!reg.test(sub.text()) && inputValue.length) {
+        $(this).fadeOut(200);
+      } else {
+        $(this).fadeIn(200);
+      }
+    });
+  });
+
   // Lazy Loading Disqus
   // http://jsfiddle.net/dragoncrew/SHGwe/1/
-  var ds_loaded = false,
-      top = $('#disqus_thread').offset().top;
-  window.disqus_shortname = $('#disqus_thread').attr('name');
+  // var ds_loaded = false,
+  //   top = $('#disqus_thread').offset().top;
+  // window.disqus_shortname = $('#disqus_thread').attr('name');
+  //
+  // function check() {
+  //   if ( !ds_loaded && container.scrollTop() + container.height() > top ) {
+  //     $.ajax({
+  //       type: 'GET',
+  //       url: 'http://' + disqus_shortname + '.disqus.com/embed.js',
+  //       dataType: 'script',
+  //       cache: true
+  //     });
+  //     ds_loaded = true;
+  //   }
+  // }check();
+  // container.scroll(check);
 
-  function check() {
-    if ( !ds_loaded && container.scrollTop() + container.height() > top ) {
-      $.ajax({
-        type: 'GET',
-        url: 'http://' + disqus_shortname + '.disqus.com/embed.js',
-        dataType: 'script',
-        cache: true
-      });
-      ds_loaded = true;
-    }
-  }check();
-  container.scroll(check);
 }afterPjax();
 

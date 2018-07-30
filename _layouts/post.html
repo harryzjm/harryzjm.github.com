@@ -4,6 +4,7 @@ layout: base
 
 <article id="post__content">
     <h1 id="post__title" data-identifier="{{ page.date | date: "%Y%m%d" }}">{{ page.title }}</h1>
+    <h3 class="post__time">{{ page.date | date: "%Y - %m - %d" }}</h3>
     {{ content }}
 </article> <!-- end #post__content -->
 
