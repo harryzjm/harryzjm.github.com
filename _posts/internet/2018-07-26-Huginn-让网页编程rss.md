@@ -1,9 +1,9 @@
 ---  
 layout: post  
 title: 让所有网页变成RSS —— Huginn  
-category: Web  
-tags: Web  
-keywords: Web  
+category: internet  
+tags: internet  
+keywords: internet  
 description: 
 ---  
 

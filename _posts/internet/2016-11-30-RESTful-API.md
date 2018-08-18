@@ -1,7 +1,7 @@
 ---  
 layout: post  
 title: RESTful API 设计指南  
-category: Web  
+category: internet  
 tags: Swift Define  
 keywords: Jekyll,Github  
 description: 
