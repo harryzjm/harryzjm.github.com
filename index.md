@@ -15,6 +15,13 @@ title: 天下寂然
   </div>
 </div>
 
+### 快捷路径    
+
+[Shell](https://iangeli.com/2014/01/15/shell.html) | [网络地址](https://harryzjm.github.io/2018/06/12/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80.html) | [Mac本地地址](https://iangeli.com/2018/06/13/Mac%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80.html)  
+-- | -- | --  
+[iOS版本占有率查询](https://developer.apple.com/support/app-store/) |  |   
+
+
 <h3>才艺展示</h3>
 <div id="container"></div>
 
@@ -57,8 +64,6 @@ title: 天下寂然
   preloadImages(urls, animate, urls)
 </script>
 
-### 快捷路径    
-[iOS版本占有率查询](https://developer.apple.com/support/app-store/)  
-[网络地址](https://harryzjm.github.io/2018/06/12/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80.html)  
+
 
 
