@@ -1,7 +1,7 @@
 ---  
 layout: post  
 title: Shadowsocks & PAC  
-category: Web  
+category: internet  
 tags: Swift Define  
 keywords: Jekyll,Github  
 description: 

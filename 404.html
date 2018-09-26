@@ -1,8 +1,26 @@
 ---
 layout: base
-title: 404 Not Found Error
+title: 博客边境
 ---
 
 <article id="post__content">
-  <h1 id="post__title">404 Not Found Error</h1>
-</article> <!-- end #post__content -->
+	<h1 id="post__title">博客边境</h1>
+	<style type="text/css">
+		.wrapper {
+			width:100%; 
+			height:100%; 
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 20px;
+		}
+	</style>
+	<div class="wrapper">
+    <a class="current" href="/index.html"><img align="center" src="/assets/photo/SuperMe.webp"></a>
+  </div>
+  <script language="javascript" type="text/javascript"> 
+	// window.location.href='index.html';  // 直接跳转
+		setTimeout("javascript:location.href='index.html'", 5000);  // 定时跳转
+	</script>
+  
+</article> 

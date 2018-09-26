@@ -80,6 +80,7 @@ $(document).on({
 function afterPjax() {
   // Open links in new tab
   $('#post__content a').attr('target','_blank');
+  $('#post__content a.current').attr('target','');
 
   // Generate post TOC for h1 h2 and h3 h4
   var toc = $('#post__toc-ul');

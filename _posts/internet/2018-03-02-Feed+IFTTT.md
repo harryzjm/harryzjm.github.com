@@ -1,7 +1,7 @@
 ---  
 layout: post  
 title: Feed+IFTTT  
-category: Web  
+category: internet  
 tags: Feed IFTTT  
 keywords: Feed,IFTTT  
 description: 
