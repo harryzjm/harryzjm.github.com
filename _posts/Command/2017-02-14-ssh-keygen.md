@@ -188,37 +188,38 @@ __Posted by [ssh-keyken 中文手册](http://lamp.linux.gov.cn/OpenSSH/ssh-keyge
          包含用于 DH-GEX 的 Diffie-Hellman groups 。文件的格式在 [moduli(5)](http://lamp.linux.gov.cn/OpenSSH/moduli.html) 手册页中描述。  
 
 # 实践  
-### 添加远程仓库 
+### 1. 添加远程仓库  
 ```swift  
-git remote add origin git@github.com:repository/repository.git  
+git remote add origin git@github.com:iangeli/smzdm-sign.git
 ```  
 
-### 制造公私钥  
+### 2. 制造公私钥  
 ```swift  
-ssh-keygen -t rsa -f test -C "comment"  
-// 生成 test  test.pub  两文件  
+ssh-keygen -t rsa -f github-code -C "harryzjm@live.com"
+// 生成 github-code github-code.pub 两文件 使用协议rsa
+// 位置 ~/.ssh/
 ```  
 
 | 选项 | 描述 |  
 | --- | --- |  
 | -t | 选择密钥类型 |  
 | -f | 文件名 |  
-| -C | 备注 |  
+| -C | 备注 一般为账户名 |  
 
-### 相关账户添加 ssh 信息  
-复制 test.pub 内容至 账户 ssh 中  
+### 3. 相关账户添加 ssh 信息  
+复制 github-code.pub 内容至 网站 ssh 公钥中  
 
-### 添加到 ~/.ssh/config  
+### 4. 添加到 ~/.ssh/config  
 ```swift  
-Host github.com  
-  HostName github.com  
-  User git  
-  IdentityFile ~/.ssh/github  
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github-code
 ```  
 
-### 测试 
+### 5. 测试  
 ```swift  
-ssh -T git@github.com  
+ssh -T git@github.com
 // Hi harryzjm! You've successfully authenticated, but GitHub does not provide shell access.  
 ```  
 
