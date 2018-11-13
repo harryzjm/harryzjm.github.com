@@ -555,7 +555,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #post__content img {
-    max-width: 60%;
+    max-width: 70%;
+    max-height: 60vw;
     /*max-height: 300px;*/
     border-radius: 5px;
 }
