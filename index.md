@@ -17,6 +17,8 @@ title: 天下寂然
 
 ### 快捷路径    
 
+[Github Stars Manager](https://iangeli.github.io/stars)
+
 [Shell](https://iangeli.com/2014/01/15/shell.html) | [网络地址](https://harryzjm.github.io/2018/06/12/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80.html) | [Mac本地地址](https://iangeli.com/2018/06/13/Mac%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80.html)  
 -- | -- | --  
 [iOS版本占有率查询](https://developer.apple.com/support/app-store/) |  |   
