@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="/assets/photo/SuperMe.webp">
+  <img src="https://i.imgur.com/qRI7sXu.png">
 </p>  
 
 
