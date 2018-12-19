@@ -166,7 +166,7 @@ You, my friend, are awesome. And you've made my day. Thank you for making my day
 
 I am Inigo Montoya. You killed my father. Prepare to die.  
 
-[6]: /assets/postAssets/2016/791010.jpg  
+[6]: /assets/postAssets/2016/791010.webp  
 [7]: https://github.com/hpique/SwiftSingleton  
 [8]: http://stackoverflow.com/questions/24024549/dispatch-once-singleton-model-in-swift  
 [9]: https://developer.apple.com/swift/blog/?id=7  

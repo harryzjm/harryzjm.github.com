@@ -60,7 +60,7 @@ print(response.encoding)
 
 发现网页编码是 'ISO-8859-1'，这是神马？
 《HTTP权威指南》第16章国际化里提到，如果HTTP响应中Content-Type字段没有指定charset，则默认页面是'ISO-8859-1'编码。这处理英文页面当然没有问题，但是中文页面就会有乱码了！
-![](/assets/postAssets/2018/13171807_tv0H.png)
+![](/assets/postAssets/2018/13171807_tv0H.webp)
 
 ### 分析
 

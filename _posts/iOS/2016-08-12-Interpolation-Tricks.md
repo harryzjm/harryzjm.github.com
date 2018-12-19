@@ -206,15 +206,15 @@ Footnotes:
 
 [1]: http://www.scene.org  
 [3]: https://en.wikipedia.org/wiki/Smoothstep#Variations  
-[2]: /assets/postAssets/2016/linear.gif  
-[4]: /assets/postAssets/2016/smoothstep.gif  
-[5]: /assets/postAssets/2016/squared.gif  
-[6]: /assets/postAssets/2016/cubed.gif  
-[7]: /assets/postAssets/2016/smoothstepx.gif  
-[8]: /assets/postAssets/2016/sin.gif  
-[9]: /assets/postAssets/2016/cos.gif  
-[10]: /assets/postAssets/2016/wtavg.gif  
-[11]: /assets/postAssets/2016/catmullrom.gif  
+[2]: /assets/postAssets/2016/linear.webp  
+[4]: /assets/postAssets/2016/smoothstep.webp  
+[5]: /assets/postAssets/2016/squared.webp  
+[6]: /assets/postAssets/2016/cubed.webp  
+[7]: /assets/postAssets/2016/smoothstepx.webp  
+[8]: /assets/postAssets/2016/sin.webp  
+[9]: /assets/postAssets/2016/cos.webp  
+[10]: /assets/postAssets/2016/wtavg.webp  
+[11]: /assets/postAssets/2016/catmullrom.webp  
 [12]: ../email.html  
 [13]: http://en.wikipedia.org/wiki/Low-pass_filter  
 

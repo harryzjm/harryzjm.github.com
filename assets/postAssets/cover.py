@@ -11,12 +11,19 @@ def totalFiles(path):
     return filesPath
 
 def coverImage(files, output):
-    m = re.compile('(.+)\.(png|jpg|jpeg)$', flags=re.I)
+    img = re.compile('(.+)\.(png|jpg|jpeg)$', flags=re.I)
+    gif = re.compile('(.+)\.(gif)$', flags=re.I)
     for name in files:
-        res=m.search(name)
-        if res != None:
-            basename = os.path.basename(res.group(1) + '.webp')
+        img_res=img.search(name)
+        if img_res != None:
+            basename = os.path.basename(img_res.group(1) + '.webp')
             operate = os.system('cwebp "' + name + '" -o "' + os.path.join(output, basename) + '"')
+            if operate != 0:
+                os.system('cp "' + name + '" "' + os.path.join(output, name) + '"')
+        gif_res=gif.search(name)
+        if gif_res != None:
+            basename = os.path.basename(gif_res.group(1) + '.webp')
+            operate = os.system('gif2webp "' + name + '" -o "' + os.path.join(output, basename) + '"')
             if operate != 0:
                 os.system('cp "' + name + '" "' + os.path.join(output, name) + '"')
 

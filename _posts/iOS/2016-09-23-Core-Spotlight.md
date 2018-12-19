@@ -26,10 +26,10 @@ Core Spotlight（CS）框架属于一个更大的 API 集合 Search APIs，它�
 为了深入剖析本节主题的细节部分，我们还是一如既往的借助实例应用来研究。在本教程，我们的应用会展示一系列的数据，这些数据能在设备（或者模拟器）的 Spotlight 中搜索到。尽管这只是一个大的蓝图，但再补充一下应用程序的细节也是很必要的。  
 我们的示例应用展示了一些*电影*及相关信息，例如简介、导演、演员、评价，等等。所有的电影数据会展示在 tableView 里，当点击某一行时，被选中电影的详情会展示在一个新的视图控制器里。没有更复杂的功能了，这种功能和数据就足以让我们了解 Core Spotlight API 是如何工作的。再补充一点，我们数据的来源是 [IMDB](http://www.imdb.com/)，我是从这里获取示例数据的。  
 你可以先看看下面的动图，大致对这个示例应用有个初步印象  
-[![](/assets/postAssets/2016/t46_1_app_working-compressor.gif)](/assets/postAssets/2016/t46_1_app_working-compressor.gif)  
+[![](/assets/postAssets/2016/t46_1_app_working-compressor.webp)](/assets/postAssets/2016/t46_1_app_working-compressor.webp)  
 这个教程里我们有两个目标： 最首要的是在 Spotlight 中能搜索到应用的所有电影数据。这样，当用户搜索关键词时，应用中涉及到该电影相关的数据会展示出来。设置这些关键词也是稍后的工作之一，因为定义它们（关键词）也是我们的职责。  
 点击搜索的电影结果，会启动应用，接着我们来完成第二个目标。如果什么都不做，就会加载默认的视图控制器并呈现给用户，在我们的例子里就是那个包含了电影列表的 tableview。但是我们想要兼顾用户体验的话，这并不是一种好的设计；更好的方案是我们的应用应该在 Spotlight 中展示选中电影的详细信息，而这正是我们最终要实现的。总而言之，我们不仅要在 Spotlight 中可以搜索电影数据，还要把相关搜索结果所对应的电影详情展现出来。通过下面示例的学习，你基本就懂了。  
-[![](/assets/postAssets/2016/t46_2_final_sample-compressor.gif)](/assets/postAssets/2016/t46_2_final_sample-compressor.gif)  
+[![](/assets/postAssets/2016/t46_2_final_sample-compressor.webp)](/assets/postAssets/2016/t46_2_final_sample-compressor.webp)  
 为了立即可以开始工作，你可以先[下载初始工程](https://www.dropbox.com/s/2oge5z8q7u4r11m/SpotItStarter.zip?dl=0)。在这个工程里，主要包含以下几部分：  
 
 >* UI 部分以及所有必要的 IBOutlet 属性已经设置完成。  
@@ -282,7 +282,7 @@ override func viewDidLoad() {
  }  
 ```  
 我们现在已经准备好首次使用 Spotlight 搜索电影了。运行应用，退出，然后在 Spotlight 使用之前定义好的任意关键词。你会看见搜索结果展现在眼前。点击任意搜索结果，会自动启动相关应用。  
-[![](/assets/postAssets/2016/t46_5_first_search-compressor.gif)](/assets/postAssets/2016/t46_5_first_search-compressor.gif)  
+[![](/assets/postAssets/2016/t46_5_first_search-compressor.webp)](/assets/postAssets/2016/t46_5_first_search-compressor.webp)  
 
 ## 实现定点着陆  
 虽然通过 Spotlight 可以搜索到我们应用中的电影数据这一点令人印象深刻，但还是能更上一层楼。目前，点击搜索结果，会跳转到应用首页 *ViewController*界面。但是我们的目标是让它直接跳转到电影详情的视图控制器，并展示所选择电影的相关信息。  
@@ -313,7 +313,7 @@ func application(application: UIApplication, continueUserActivity userActivity: 
 ```  
 在以上代码片段里，在恢复用户活动状态前，我们首先通过 *window* 属性获取到 *ViewController* 视图控制器。你还可以利用 *NSNotificationCenter* 和发送自定义通知来实现，这样你需要在 *ViewController* 类里处理通知。显然第一种方案更为直观。  
 这就是全部内容了！我们的示例应用已经完成，那么再运行一次看看在 Spotlight 里搜索电影时会发生什么吧。  
-[![](/assets/postAssets/2016/t46_2_final_sample-compressor.gif)](/assets/postAssets/2016/t46_2_final_sample-compressor.gif)  
+[![](/assets/postAssets/2016/t46_2_final_sample-compressor.webp)](/assets/postAssets/2016/t46_2_final_sample-compressor.webp)  
 
 ## 总结  
 iOS 9 最新的搜索 API 对于开发者而言前景广阔，因为这些 API 能大幅提高应用的曝光度、也更容易被用户访问。在本教程里，我们涉及了索引应用数据的所有步骤，最终在 Spotlight 搜索时能发现这些数据。也说明了应用该如何处理选中的搜索结果，并展现特定的数据给用户。在实现这些特性一定能大幅提升用户体验，因此你应该认真地考虑在现有的和将来的项目中添加这些特性。我们又到了说再见的时候，希望这篇文章对你有帮助！祝开心!  

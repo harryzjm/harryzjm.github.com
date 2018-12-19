@@ -13,18 +13,18 @@ __Posted by [Anchoriter](https://www.jianshu.com/p/fdb50d303ad6)__
 ### 1. App Store下载Apple Configurator 2。
 ### 2. 然后把iphone连接上Mac，点击Apple Configurator 2 菜单中->账户->登陆（用连接设备的Apple ID）
 
-![](/assets/postAssets/2018/15407924464180.jpg)
+![](/assets/postAssets/2018/15407924464180.webp)
 
 ### 3. 所有设备->选中当前iPhone->添加->应用，找到您想要ipa的那个应用->添加
 
-![](/assets/postAssets/2018/15407924786014.jpg)
+![](/assets/postAssets/2018/15407924786014.webp)
 
-![](/assets/postAssets/2018/15407925129379.jpg)
+![](/assets/postAssets/2018/15407925129379.webp)
 
 ### 4. 因为你手机中已经存在了当前应用，所以会提示，该应用已经存在， 是否需要替换？
     此时，不要点任何按钮！不要点任何按钮！不要点任何按钮！
   
-![](/assets/postAssets/2018/15407925219827.jpg)
+![](/assets/postAssets/2018/15407925219827.webp)
 
 ### 5. 不要操作Apple Configurator 2，让它保持上图的状态，然后打开Finder前往文件夹，或者直接快捷键`command+shift+G`
     并输入下面路径
