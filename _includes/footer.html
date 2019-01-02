@@ -5,12 +5,13 @@
 <script src="/assets/js/nprogress.js"></script>
 <script src="/assets/js/script.js"></script>
 
-<script  color="120,0,255" opacity='0.618'  count="100" src="/assets/js/canvas-nest.js"></script>
-
 <!--https://github.com/EYHN/hexo-helper-live2d-->
 <script src="/assets/live/L2Dwidget.min.js"></script>
-<script>L2Dwidget.init({
-  "display": {"position": "right", "width": 90, "height": 135},
-  "mobile": {"show": true, "scale": 0.02},
-  "log": false
-})</script>
+<script>L2Dwidget.init({"display": {"position": "right", "width": 90, "height": 135}})</script>
+
+<!--https://github.com/hustcc/canvas-nest.js-->
+<script>
+  if( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    document.write("<script color='120,0,255' opacity='0.618'  count='100' src='/assets/js/canvas-nest.js'>")
+  }
+</script>

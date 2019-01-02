@@ -314,66 +314,66 @@ Slack 环境一切就绪，接下来，回到 Huginn。
 
 ```json  
 {
- "post_url": "\{\% credentials slack_huginn_url_post_message %}",
- "expected_receive_period_in_days": "1",
- "content_type": "json",
- "method": "post",
- "payload": {
- "channel": "huginn-movie",
- "username": "Douban Movie",
- "icon_url": "https://img3.doubanio.com/pics/douban-icons/favicon_48x48.png",
- "attachments": [
- {
- "fallback": "Required plain-text summary of the attachment.",
- "mrkdwn_in": [
- "text",
- "pretext"
- ],
- "color": "#36a64f",
- "pretext": "Hi~ , There is *high score* movie.",
- "author_name": "{{director}}",
- "author_link": "{{detail_url}}",
- "author_icon": "",
- "title": "《{{title}}》",
- "title_link": "{{detail_url}}",
- "text": "*Actors*: {{actors}}",
- "fields": [
- {
- "title": "Score",
- "value": "{{score}}",
- "short": true
- },
- {
- "title": "Star",
- "value": "{{star}}",
- "short": true
- },
- {
- "title": "Region",
- "value": "{{region}}",
- "short": true
- },
- {
- "title": "Release",
- "value": "{{release}}",
- "short": true
- }
- ],
- "image_url": "",
- "thumb_url": "{{image_url}}",
- "footer": "Slack",
- "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
- "ts": "{{\"now\" | date: \"%s\"}}"
- }
- ]
- },
- "headers": {
- "Content-Type": "application/json",
- "Authorization": "\{\% credentials slack_huginn_token %}"
- },
- "emit_events": "false",
- "no_merge": "false",
- "output_mode": "clean"
+  "post_url": "{% raw %}{% credentials slack_huginn_url_post_message %}{% endraw %}", 
+  "expected_receive_period_in_days": "1", 
+  "content_type": "json", 
+  "method": "post", 
+  "payload": {
+    "channel": "huginn-movie", 
+    "username": "Douban Movie", 
+    "icon_url": "https://img3.doubanio.com/pics/douban-icons/favicon_48x48.png", 
+    "attachments": [
+      {
+        "fallback": "Required plain-text summary of the attachment.", 
+        "mrkdwn_in": [
+          "text", 
+          "pretext"
+        ], 
+        "color": "#36a64f", 
+        "pretext": "Hi~ , There is *high score* movie.", 
+        "author_name": "{{director}}", 
+        "author_link": "{{detail_url}}", 
+        "author_icon": "", 
+        "title": "《{{title}}》", 
+        "title_link": "{{detail_url}}", 
+        "text": "*Actors*: {{actors}}", 
+        "fields": [
+          {
+            "title": "Score", 
+            "value": "{{score}}", 
+            "short": true
+          }, 
+          {
+            "title": "Star", 
+            "value": "{{star}}", 
+            "short": true
+          }, 
+          {
+            "title": "Region", 
+            "value": "{{region}}", 
+            "short": true
+          }, 
+          {
+            "title": "Release", 
+            "value": "{{release}}", 
+            "short": true
+          }
+        ], 
+        "image_url": "", 
+        "thumb_url": "{{image_url}}", 
+        "footer": "Slack", 
+        "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png", 
+        "ts": "{{'now' | date: '%s'}}"
+      }
+    ]
+  }, 
+  "headers": {
+    "Content-Type": "application/json", 
+    "Authorization": "{% raw %}{% credentials slack_huginn_token %}{% endraw %}"
+  }, 
+  "emit_events": "false", 
+  "no_merge": "false", 
+  "output_mode": "clean"
 }
 ```  
 
