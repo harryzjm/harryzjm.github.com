@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 天下寂然
+title: 铜雀台
 ---
 
 <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -23,48 +23,6 @@ title: 天下寂然
 -- | -- | --  
 [iOS版本占有率查询](https://developer.apple.com/support/app-store/) |  |   
 
-
-<h3>才艺展示</h3>
-<div id="container"></div>
-
-<script type="text/javascript">
-  function preloadImages(urls, callback, param) {
-    if (urls.length == 0) { callback(param); return }
-    var img = new Image()
-        img.src = urls[0]
-        if (img.complete) {
-      preloadImages(urls.slice(1), callback, param)
-    } else {
-        img.onload = function() {
-            preloadImages(urls.slice(1), callback, param)
-        }
-            }
-  }
-  function animate(urls) {
-    let container = document.getElementById('container')
-    const count = (urls.length + 1) / 2
-    for (let i = 0; i < count; i++) {
-      let div = document.createElement('div')
-            container.appendChild(div)
-      for (let j = 0; j < count; j++) {
-        let img = new Image()
-                setTimeout(function (div) {
-          img.src = urls[i+j]
-          div.appendChild(img)
-        }, 500 * (i+j), div)
-      }
-    }
-  }
-
-  const url = '/assets/photo/skill.gif'
-  const pageWidth = Math.floor(document.getElementById('post__content').clientWidth / 100)
-  const count = Math.max(Math.min(pageWidth, 4), 1)
-  const urls = Object.keys(Array.apply(null, {length: count * 2 - 1})).map(function(item){
-    return url + `?a=` + item
-  })
-  
-  preloadImages(urls, animate, urls)
-</script>
 
 
 
