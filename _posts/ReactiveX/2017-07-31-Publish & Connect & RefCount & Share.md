@@ -13,8 +13,8 @@ description:
 ```swift  
 print("Starting at 0 seconds")  
 let signal = Observable<Int>.interval(1, scheduler: MainScheduler.instance)  
-            .publish().connect()  
-
+            .publish()
+signal.connect()
 let subscription1 = signal.subscribe(onNext: {  
     lError("Next: \($0)")  
 })  
