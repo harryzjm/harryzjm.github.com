@@ -1,8 +1,8 @@
 ---  
 layout: post  
 title: Python3使用Requests抓取网页乱码问题  
-category: Python  
-tags: Python  
+category: internet  
+tags: internet  
 keywords: Python 
 description: 
 ---  
