@@ -1,8 +1,8 @@
 ---  
 layout: post  
 title: 端对端加密通讯协议Signal protocol 学习  
-category: Protocol & Algorithm  
-tags: Protocol & Algorithm  
+category: Algorithm  
+tags: Algorithm  
 keywords: protocol  
 description: 
 ---  
