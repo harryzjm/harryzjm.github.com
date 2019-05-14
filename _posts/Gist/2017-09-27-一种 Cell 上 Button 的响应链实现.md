@@ -12,9 +12,9 @@ __Posted by [lsb332](http://www.jianshu.com/p/8fef9171c322/)__
 利用 UIResponder 传递响应  
 
 ```swift  
-// Swift 3.2  
+// Swift 5  
 extension UIResponder {  
-    func routerEvent(with name: String, userInfo: [String:Any]) {  
+    @objc func routerEvent(with name: String, userInfo: [String:Any]) {  
         next?.routerEvent(with: name, userInfo: userInfo)  
     }  
 }  
@@ -22,10 +22,10 @@ extension UIResponder {
 // TableCell.swift  
 func buttonClick(btn: UIButton) {  
     routerEvent(with: "CellButtonKey", userInfo:  ["cell": self])  
- }  
+}  
 
- // ViewController.swift  
- override func routerEvent(with name: String, userInfo: [String : Any]) {  
+// ViewController.swift  
+@objc override func routerEvent(with name: String, userInfo: [String : Any]) {  
     switch name {  
     case "CellButtonKey":  
         manageButtonClick(userInfo)  
