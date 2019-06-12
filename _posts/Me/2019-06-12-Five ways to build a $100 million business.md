@@ -65,11 +65,9 @@ That leaves me with the million dollar – sorry, one *hundred* million dollar
 
 [Yet another update: [We turned the post into a poster!](http://christophjanz.blogspot.com/2017/02/5-ways-100-million-dollars-100-free.html)]
 
-___________________________________
-
 * If you have $100 million in annual high-margin revenue, you will likely be able to exit for $500 million to $1 billion or more. That's the kind of exit most venture capitalists are looking for, although we as a small fund can achieve a great fund performance with somewhat lower outcomes. 
 
-** For eCommerce companies, which naturally have a much lower contribution margin than purely digital businesses like SaaS and are therefore valued at much lower revenue multiples, it makes more sense to target $100M in contribution margin.
+* For eCommerce companies, which naturally have a much lower contribution margin than purely digital businesses like SaaS and are therefore valued at much lower revenue multiples, it makes more sense to target $100M in contribution margin.
 
 
 
