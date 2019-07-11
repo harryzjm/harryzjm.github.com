@@ -1305,6 +1305,10 @@ pre > code {
   vertical-align: 2px;
 }
 
+.highlighter-rouge {
+  color: #E25822;
+}
+
 .highlight .c {
   color: #586e75;
 }
