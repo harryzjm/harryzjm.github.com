@@ -1,6 +1,6 @@
 ---  
 layout: post  
-title: Creating Custom Xcode Project Templates 
+title: Xcode 文本宏（Text Macros） 
 category: iOS  
 tags: iOS  
 keywords: iOS  
