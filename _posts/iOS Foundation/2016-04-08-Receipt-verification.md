@@ -1,7 +1,7 @@
 ---  
 layout: post  
 title: 收据验证  
-category: iOS  
+category: iOS Foundation  
 tags: Swift Define  
 keywords: Jekyll,Github  
 description: 

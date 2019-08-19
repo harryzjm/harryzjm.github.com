@@ -1,7 +1,7 @@
 ---  
 layout: post  
 title: Multitasking  
-category: iOS  
+category: iOS Foundation  
 tags: Swift Define  
 keywords: Jekyll,Github  
 description: 

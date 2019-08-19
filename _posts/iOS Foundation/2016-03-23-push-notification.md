@@ -1,7 +1,7 @@
 ---  
 layout: post  
 title: Swift 通知推送  
-category: iOS  
+category: iOS Foundation  
 tags: Swift Define  
 keywords: Jekyll,Github  
 description: 

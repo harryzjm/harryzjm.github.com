@@ -1,7 +1,7 @@
 ---  
 layout: post  
 title: iOS应用上架到AppStore  
-category: iOS  
+category: iOS Foundation  
 tags: iOS  
 keywords: iOS  
 description: 

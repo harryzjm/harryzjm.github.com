@@ -1,7 +1,7 @@
 ---  
 layout: post  
 title: 通用链接（Universal Links）  
-category: iOS  
+category: iOS Foundation  
 tags: iOS  
 keywords: iOS  
 description: 
