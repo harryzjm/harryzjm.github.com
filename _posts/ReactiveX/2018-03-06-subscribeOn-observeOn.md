@@ -7,6 +7,9 @@ keywords: Jekyll,Github
 description: 
 ---  
 
+![](/assets/postAssets/2019/15731936523505.jpg)
+
+
 ```swift  
 //程序运行于 queue0  
 Observable.create   // 1  
