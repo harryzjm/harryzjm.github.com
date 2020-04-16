@@ -1,6 +1,6 @@
 ---  
 layout: post  
-title: CS Visualized: Useful Git Commands  
+title: CS Visualized - Useful Git Commands  
 category: Command  
 tags: Git  
 keywords: Git  
@@ -21,7 +21,6 @@ One way to get the changes from one branch to another is by performing a `git m
 
 This may not make a lot of sense right now, so let's look at the differences!
 
-### 
 
 A **fast-forward merge** can happen when the current branch has no extra commits compared to the branch we’re merging. Git is... *lazy* and will first try to perform the easiest option: the fast-forward! This type of merge doesn’t create a new commit, but rather merges the commit(s) on the branch we’re merging right in the current branch 🥳
 
@@ -29,7 +28,6 @@ A **fast-forward merge** can happen when the current branch has no extra commi
 
 Perfect! We now have all the changes that were made on the `dev` branch available on the `master` branch. So, what's the **no-fast-forward** all about?
 
-### 
 
 It's great if your current branch doesn't have any extra commits compared to the branch that you want to merge, but unfortunately that's rarely the case! If we committed changes on the current branch that the branch we want to merge doesn't have, git will perform a *no-fast-forward* merge.
 
