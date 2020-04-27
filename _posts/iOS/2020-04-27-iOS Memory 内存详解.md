@@ -138,11 +138,10 @@ iOS 和大多数桌面操作系统一样，使用了虚拟内存机制。
 
 未写入数据的内存也属于 clean memory，比如下面这段代码，只有写入了的部分才属于 dirty memory。
 
-```
+```swift  
 int *array = malloc(20000 * sizeof(int));
 array[0] = 32
 array[19999] = 64
-复制代码
 ```
 
 ![](/assets/postAssets/2019/15879598368157.jpg)
@@ -207,7 +206,7 @@ array[19999] = 64
 
 内存泄漏指的是没能释放不能使用的内存，会浪费大量内存，很可能导致应用崩溃。ARC 可能导致的循环引用就是其中一种，并且也是 iOS 上最常发生的。什么情况下会发生循环引用，大家可能都比较熟悉了，swift 中比较典型的是在使用闭包的时候：
 
-```
+```swift  
 class viewController: UIViewController {
     var a = 10
     var b = 20
@@ -227,7 +226,6 @@ class viewController: UIViewController {
         anotherFunction(closure: someClosure!)
     }
 }
-复制代码
 ```
 
 上面这段代码中，`viewController` 会持有 `someClosure`，而 `someClosure` 也因为需要使用 `self.a + self.b` 而持有了 `viewController`，这就导致了循环引用。注意，闭包和类相似，都是引用类型，当把闭包赋值给类的属性时，实际上是把闭包的引用赋值给了这个属性。
@@ -236,12 +234,11 @@ class viewController: UIViewController {
 
 解决方法也很简单，利用 Swift 提供的闭包捕获列表，将循环引用中的一个强引用关系改为弱引用就好了。实际上，Swift 要求在闭包中使用到了 `self` 的成员都必须不能省略 `self.` 的关键词，就是为了提醒这种情况下可能发生循环引用问题。
 
-```
+```swift  
 someClosure = { [weak self] in
     guard let self = self else { return 0 }
     return self.a + self.b
 }
-复制代码
 ```
 
 ### weak 和 unowned
@@ -250,11 +247,10 @@ someClosure = { [weak self] in
 
 比如上面的例子我们使用了 `weak`，那么就需要额外使用 `guard let` 进行一步解包。而如果使用 `unowned`，就可以省略解包的一步：
 
-```
+```swift  
 someClosure = { [unowned self] in
     return self.a + self.b
 }
-复制代码
 ```
 
 `weak` 在底层添加了附加层，间接地把 `unowned` 引用包裹到了一个可选容器里面，虽然这样做会更加清晰，但是在性能方面带来了一些影响，所以 `unowned` 会更快一些。
@@ -273,7 +269,7 @@ someClosure = { [unowned self] in
 
 一种情况，如果两个互相持有的对象，一个可能为 `nil` 而另一个不会为 `nil`，那么就可以使用 `unowned`。比如官方文档中的这个例子，每张信用卡必然有它的主人，`CreditCard` 必然对应一个 `Customer`，所以这里使用了 `unowned`：
 
-```
+```swift  
 class Customer {
     let name: String
     var card: CreditCard?
@@ -292,7 +288,6 @@ class CreditCard {
     }
     deinit { print("Card #\(number) is being deinitialized") }
 }
-复制代码
 ```
 
 而另一种情况，对于闭包，在闭包和捕获的实例总是相互引用并且同时销毁时，可以将闭包的捕获定义为 `unowned`。如果被捕获的引用绝对不会变为 `nil`，应该使用 `unowned`，而不是 `weak`。
@@ -301,7 +296,7 @@ class CreditCard {
 
 比如下面这个例子中的闭包，首先 `asHTML` 被声明为 `lazy`，那么一定是 `self` 先被初始化；同时内部也没有使用 `asHTML` 属性，所以 `self` 一旦被销毁，闭包也不存在了。这种情况下就应该使用 `unowned`：
 
-```
+```swift  
 class HTMLElement {
 
     let name: String
@@ -322,7 +317,6 @@ class HTMLElement {
     }
 
 }
-复制代码
 ```
 
 总的来说，最关键的点在于 `weak` 比 `unowned` 更加安全，能够避免意外的 crash，这对于工程来说是非常有益的。所以大多数时候，就像我们通过 `if let` 以及 `guard let` 来避免使用 `!` 强制解析一样，我们也通常直接使用 `weak`。
@@ -333,16 +327,15 @@ class HTMLElement {
 
 比如，如果在 `viewController` 中使用了类似下面的闭包，就不会发生循环引用，因为 `DispatchQueue` 并不会被持有：
 
-```
+```swift  
 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
     self.execute()
 }
-复制代码
 ```
 
 更典型的比如使用 static functions 的时候：
 
-```
+```swift  
 class APIClass {
     // static 函数
     static func getData(params: String, completion:@escaping (String) -> Void) {
@@ -363,7 +356,6 @@ class viewController {
         }
     }
 }
-复制代码
 ```
 
 此时并不会产生循环引用，因为 `self` 并不会持有 static class，因此也不会产生内存泄漏：
@@ -378,7 +370,7 @@ iOS 是一个从 BSD 衍生而来的系统，其内核是 Mach。其中内存警
 
 根据 apple 开源的内核代码 [apple/darwin-xnu](https://github.com/apple/darwin-xnu)，我们可以看到，Jetsam 维护了一个优先级队列，具体的优先级内容可以在 [bsd/kern/kern_memorystatus.c](https://github.com/apple/darwin-xnu/blob/a449c6a3b8014d9406c2ddbdc81795da24aa7443/bsd/kern/kern_memorystatus.c) 文件中找到：
 
-```
+```swift  
 static const char *
 memorystatus_priority_band_name(int32_t priority)
 {
@@ -401,15 +393,13 @@ memorystatus_priority_band_name(int32_t priority)
 
 	return ("?");
 }
-复制代码
 ```
 
 而如何监控内存警告，以及处理 Jetsam 事件呢？首先，内核会调起一个内核优先级最高（`95 /* MAXPRI_KERNEL */` 已经是内核能给线程分配的最高优先级了）的线程：
 
-```
+```swift  
 // 同样在 bsd/kern/kern_memorystatus.c 文件中
 result = kernel_thread_start_priority(memorystatus_thread, NULL, 95 /* MAXPRI_KERNEL */, &jetsam_threads[i].thread);
-复制代码
 ```
 
 这个线程会维护两个列表，一个是基于优先级的进程列表，另一个是每个进程消耗的内存页的列表。与此同时，它会监听内核 `pageout` 线程对整体内存使用情况的通知，在内存告急时向每个进程转发内存警告，也就是触发 `didReceiveMemoryWarning` 方法。

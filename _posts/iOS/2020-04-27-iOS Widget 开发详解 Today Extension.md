@@ -1,6 +1,6 @@
 ---  
 layout: post  
-title: iOS Memory 内存详解  
+title: iOS Widget 开发详解 Today Extension  
 category: iOS  
 tags: iOS  
 keywords: iOS  
@@ -35,7 +35,7 @@ __Posted by [RickeyBoy](https://github.com/RickeyBoy/Rickey-iOS-Notes/blob/maste
 
 * 第二步：在 Podfile 中进行配置。在 Widget 中我是用了 SnapKit，ObjectMapper 两个库，只需要在 Podfile 中引入这两个库就行了，写好之后 pod update 就可以真机运行了。
 
-```source-swift
+```swift
 def sharedPods
   pod_source 'ObjectMapper', '3.3.0', :modular_headers => true
   pod_source 'SnapKit', '4.0.1', :modular_headers => true
@@ -91,7 +91,7 @@ Google 之后发现 [Stack Overflow - DoertyDoerk](https://stackoverflow.com/a/
 
 配置好 URLSchemes 之后，在 Widget 里就直接通过 **extensionContext** 打开相应的 url，就可以调起 host app。
 
-```source-swift
+```swift
 @objc private func launchApp() {
    if let url = URL(string: "snss-----://") {        
        self.extensionContext?.open(url, completionHandler: nil)
@@ -119,7 +119,7 @@ Google 之后发现 [Stack Overflow - DoertyDoerk](https://stackoverflow.com/a/
 
 > host app 部分：
 
-```source-swift
+```swift
 // 将 parameters 存入 UserDefaults 中
 if let shared = UserDefaults.init(suiteName: "group.com.---------.StockWidgetShareDefaults") {
    shared.setValue(parameters, forKey: "StockWidget")
@@ -128,7 +128,7 @@ if let shared = UserDefaults.init(suiteName: "group.com.---------.StockWidgetSha
 
 > Widget 部分：
 
-```source-swift
+```swift
 /// 从主 app 获取网络请求的基本 parameters
 static func dataFromMainApp() -> [String: String]? {
     if let shared = UserDefaults.init(suiteName: "group.com.---------.StockWidgetShareDefaults"), let params = shared.value(forKey: "StockWidget") as? [String: String] {
@@ -149,7 +149,7 @@ static func dataFromMainApp() -> [String: String]? {
 
 展开和收起直接实现 [widgetActiveDisplayModeDidChange](https://github.com/RickeyBoy/Rickey-iOS-Notes/blob/master/%E5%9B%BE%E7%89%87%E5%A4%87%E4%BB%BD/Blog_Swift_Widget/1-10.png?raw=true) 方法就行了。
 
-```source-swift
+```swift
 func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
     preferredContentSize.height = min(tableView.totalHeight, maxSize.height)
 }
