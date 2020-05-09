@@ -7,9 +7,15 @@ keywords: Jekyll,Github
 description: 
 ---  
 
-dispatch_set_target_queue 共有两个用法  
+## [Avoiding Excessive Thread Creation](https://developer.apple.com/documentation/dispatch/dispatchqueue)  
+When designing tasks for concurrent execution, do not call methods that block the current thread of execution. When a task scheduled by a concurrent dispatch queue blocks a thread, the system creates additional threads to run other queued concurrent tasks. If too many tasks block, the system may run out of threads for your app.
 
-## 1.变更优先级  
+Another way that apps consume too many threads is by creating too many private concurrent dispatch queues. Because each dispatch queue consumes thread resources, creating additional concurrent dispatch queues exacerbates the thread consumption problem. Instead of creating private concurrent queues, submit tasks to one of the global concurrent dispatch queues. For serial tasks, set the target of your serial queue to one of the global concurrent queues. That way, you can maintain the serialized behavior of the queue while minimizing the number of separate queues creating threads.
+
+
+## dispatch_set_target_queue 共有两个用法  
+
+### 1.变更优先级  
 ```swift  
 dispatch_queue_t serialQueue = dispatch_queue_create("com.gcd.serialQueue", DISPATCH_QUEUE_SERIAL);  
 dispatch_queue_t serialDefaultQueue = dispatch_queue_create("com.gcd.serialDefaultQueue", DISPATCH_QUEUE_SERIAL);  
@@ -40,7 +46,7 @@ dispatch_async(serialDefaultQueue, ^{
 // 1  
 ```  
 
-## 2.改变队列层次体系  
+### 2.改变队列层次体系  
 当我们想让不同队列中的任务同步的执行时，可以创建一个串行队列，然后将这些队列的target指向新建的队列即可  
 例: 将多个串行queue指定到目标串行queue, 以实现某任务在多个串行 queue 也是先后执行 而非并行  
 
