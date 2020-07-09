@@ -9,9 +9,6 @@ description:
 
 __[Posted by Onevcat](https://onevcat.com/2019/12/backpressure-in-combine)__  
 
-
-> 本文是对我的《SwiftUI 和 Combine 编程》书籍的补充，对一些虽然很重要，但和书中上下文内容相去略远，或者一些不太适合以书本的篇幅详细展开解释的内容进行了追加说明。如果你对 SwiftUI 和 Combine 的更多话题有兴趣的话，可以考虑[参阅原书](https://objccn.io/products/swift-ui)。
-
 Combine 在 API 设计上很多地方都参考了 Rx 系，特别是 [RxSwift](https://github.com/ReactiveX/RxSwift) 的做法。如果你已经对响应式编程很了解的话，从 RxSwift 迁移到 Combine 应该是轻而易举的。如果要说起 RxSwift 和 Combine 的最显著的不同，那就是 RxSwift 在可预期的未来[没有支持 backpressure 的计划](https://github.com/ReactiveX/RxSwift/issues/1666?source=post_page-----64780a150d89----------------------#issuecomment-395546338)；但是 Combine 中原生对这个特性进行了支持：在 Combine 中你可以在 `Subscriber` 中返回追加接收的事件数量，来定义 Backpressure 的响应行为。在这篇文章里，我们会解释这个行为。
 
 ## 什么是 Backpressure，为什么需要处理它
@@ -424,49 +421,3 @@ let cancellable  = Timer.publish(every: 1, on: .main, in: .default)
 
 > 相关的代码可以[在这里找到](https://gist.github.com/onevcat/baecc584e3cbfa2cc161290b2dfd300a)。
 
-## 练习
-
-为了保持和[《SwiftUI 和 Combine 编程》](https://onevcat.com/2019/12/backpressure-in-combine/(https://objccn.io/products/swift-ui))这本书的形式上的类似，我也准备了一些小练习，希望能帮助读者通过实际动手练习掌握本文的内容。
-
-### 1\. 自定义实现 `Subscribers.Assign`
-
-文中自定义了 `MySink`，来复现 `Sink` 的功能。现在请你依照类似的方式创建一个你自己的 `MyAssign` 类型，让它和 `Subscribers.Assign` 的行为一致。作为提示，下面是 Combine 框架中 `Subscribers.Assign` 的 (简化版的) public 声明：
-
-```swift
-class Assign<Root, Input> : Subscriber, Cancellable {
-    typealias Failure = Never
-    var object: Root? { get }
-    let keyPath: ReferenceWritableKeyPath<Root, Input>
-
-    // ...
-}
-```
-
-### 2\. 一次 request 超过 `.max(1)` 个数的事件
-
-在引入 `resume` 时，我们将 `.max(1)` 硬编码在了方法内部：
-
-```swift
-func resume() {
-    subscription?.request(.max(1))
-}
-```
-
-我们能不能修改这个方法的签名，让它更灵活一些，接受一个 `Demand` 参数，让它可以向 `subscription` 请求多个值？比如：
-
-```swift
-func resume(_ demand: Subscribers.Demand) {
-    subscription?.request(demand)
-}
-```
-
-这么做会对 `Resumable` 产生影响吗？会对之后我们想要实现的暂停逻辑有什么影响？我们还能够使用这样的 `resume` 写出可靠的暂停和重启逻辑么？
-
-### 3\. 通用的 Subscriber 和专用的 Subscriber
-
-本文最后我们实现的是一个相对通用的 Subscriber，但是如果逻辑更复杂，或者需要大规模重复使用时，把逻辑放在 `receiveValue` 闭包中会有些麻烦。
-
-请尝试把原文中 「`buffer` 元素数到达 5 时，暂停一秒」这个逻辑封装起来，用一个新的专用的 `Subscriber` 替代。你可以尝试两个方向：
-
-1. 使用一个新的类型，包装现有的 `MySink`，将判断逻辑放到新类型中；`Subscriber` 协调所需要定义的方法，通过转发的方式交给 `MySink` 处理。
-2. 完全重新实现一个和 `MySink` 无关的 `Subscriber`，专门用来处理这类定时开关的事件流。
