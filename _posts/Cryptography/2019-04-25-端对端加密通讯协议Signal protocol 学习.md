@@ -112,6 +112,7 @@ Bob 还需定时补充一致性密钥OPK, 和周期性更新Prekey,以支持前�
     DH2 = DH(EKA, IKB)
     DH3 = DH(EKA, SPKB)
     SK = KDF(DH1 || DH2 || DH3)
+    注:‘||‘ 代表连接符，比如 456||123=456123
 ```
 
 若有OPK 则SK生成方式如下:
@@ -121,8 +122,6 @@ Bob 还需定时补充一致性密钥OPK, 和周期性更新Prekey,以支持前�
     SK = KDF(DH1 || DH2 || DH3 || DH4)
 ```
 
-> ‘||‘ 代表连接符，比如 456||123=456123
->
 > DH1 和 DH2 提供相互认证，DH3 和 DH4 提供前向保密
 
 然后 生成包含双方信息的 Associated Data
