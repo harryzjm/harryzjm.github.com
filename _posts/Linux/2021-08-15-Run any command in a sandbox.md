@@ -1,6 +1,6 @@
----  
+---
 layout: post  
-title: OS X: Run any command in a sandbox  
+title: OS X Run any command in a sandbox  
 category: Linux  
 tags: Linux  
 keywords: Linux  

@@ -1,7 +1,7 @@
----  
+---
 layout: post  
 title: 排序算法总结（C++）  
-category: Algorithm  
+category: Cryptography  
 tags: 算法  
 keywords: 算法,排序,Sort,Algorithm  
 ---  
@@ -31,7 +31,7 @@ void bubble_sort(vector<int> &nums)
         }  
     }  
 }  
-```  
+```
 
 交换的那一步可以不借助temp，方法是  
 
@@ -39,7 +39,7 @@ void bubble_sort(vector<int> &nums)
 nums[j] += nums[j + 1];  
 nums[j + 1] = num[j] - nums[j + 1];  
 nums[j] -= num[j + 1];  
-```  
+```
 
 **复杂度分析**  
 
@@ -68,7 +68,7 @@ void insert_sort(vector<int> &nums)
         }  
     }  
 }  
-```  
+```
 
 **复杂度分析**  
 
@@ -99,7 +99,7 @@ void selection_sort(vector<int> &nums)
         nums[min] = temp;  
     }  
 }  
-```  
+```
 
 **复杂度分析**  
 
@@ -157,7 +157,7 @@ void shell_sort(vector<int> &nums)
         }  
     }  
 }  
-```  
+```
 
 **复杂度分析**  
 
@@ -201,7 +201,7 @@ void merge_sort(vector<int> &nums, int b, int e, vector<int> &temp)
         merge_array(nums, b, m, e, temp);  
     }  
 }  
-```  
+```
 
 这个实现中加了一个temp，是和原数组一样大的一个空间，用来临时存放排序后的子数组的。  
 
@@ -243,7 +243,7 @@ void quick_sort(vector<int> &nums, int b, int e, vector<int> &temp)
         quick_sort(nums, lb + 1, e, temp);  
     }  
 }  
-```  
+```
 
 解法2: 不需要辅助空间  
 
@@ -264,7 +264,7 @@ void quick_sort(vector<int> &nums, int b, int e)
         quick_sort(nums, lb + 1, e);  
     }  
 }  
-```  
+```
 
 **复杂度分析**  
 
@@ -321,7 +321,7 @@ void max_heapify(vector<int> &nums, int beg, int end)
         }  
     }  
 }  
-```  
+```
 
 **复杂度分析**  
 

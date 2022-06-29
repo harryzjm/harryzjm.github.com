@@ -1,6 +1,6 @@
----  
+---
 layout: post  
-title: 为 App 添加 3D Touch 快捷菜单
+title: 为 App 添加 3D Touch 快捷菜单  
 category: iOS Foundation  
 tags: iOS  
 keywords: iOS  
@@ -24,7 +24,7 @@ if self.traitCollection.forceTouchCapability == UIForceTouchCapability.available
 } else {
  print("不支持 3D Touch")
 }
-```  
+```
 
 ### 2.添加按钮
 
@@ -56,7 +56,7 @@ if self.traitCollection.forceTouchCapability == UIForceTouchCapability.available
         <string>1</string>
     </dict>
 </array>
-```  
+```
 
 其中 UIApplicationShortcutItemIconType 项代表按钮图标，更多图标可以参见： [https://developer.xamarin.com/api/type/UIKit.UIApplicationShortcutIconType/](https://developer.xamarin.com/api/type/UIKit.UIApplicationShortcutIconType/)
 
@@ -98,7 +98,7 @@ func application(_ application: UIApplication, performActionFor shortcutItem: UI
         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }
-```  
+```
 
 ![在 AppDelegate.swift 添加功能代码](/assets/postAssets/2019/3D-Touch-4.png)
 
