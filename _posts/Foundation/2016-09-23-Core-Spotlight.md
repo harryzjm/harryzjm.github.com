@@ -1,7 +1,7 @@
 ---  
 layout: post  
 title: Core Spotlight 框架  
-category: iOS Foundation  
+category: Foundation  
 tags: Swift Define  
 keywords: Jekyll,Github  
 description: 

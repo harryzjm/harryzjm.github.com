@@ -1,7 +1,7 @@
 ---  
 layout: post  
 title: iOS证书  
-category: iOS Foundation  
+category: Foundation  
 tags: iOS  
 keywords: iOS  
 description: 

@@ -1,7 +1,7 @@
 ---
 layout: post  
 title: 为 App 添加 3D Touch 快捷菜单  
-category: iOS Foundation  
+category: Foundation  
 tags: iOS  
 keywords: iOS  
 description: 

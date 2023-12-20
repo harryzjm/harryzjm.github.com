@@ -1,7 +1,7 @@
 ---  
 layout: post  
 title: iOS 12 中的 Siri Shortcuts 简介
-category: iOS Foundation  
+category: Foundation  
 tags: iOS  
 keywords: iOS  
 description: 
