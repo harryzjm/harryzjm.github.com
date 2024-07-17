@@ -6,7 +6,7 @@ title: 铜雀台
 <div style="display:flex;justify-content:space-between;align-items:center;">
   <div>
     <h3>欢迎你来到这里!</h3>
-    <p>我是<a style="display:inline-block;" href="https://github.com/harryzjm"><b>Hares</b></a>, <b>iOS软件工程师</b>, 目前正在找寻一份新的工作...</p>
+    <p>我是<a style="display:inline-block;" href="https://github.com/harryzjm"><b>Hares</b></a>, <b>iOS软件工程师</b></p>
     <p>若对博客内容有疑问, 或是建议, 请联系我.</p>
     <b>邮件:<a style="display:inline-block;" href="mailto:harryzjm@live.com">harryzjm@live.com</a></b>
   </div>
